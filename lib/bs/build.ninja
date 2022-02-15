@@ -1,0 +1,16 @@
+rescript = 1
+rule astj
+  command = /home/mishaszu/.nvm/versions/node/v16.13.1/lib/node_modules/rescript/linux/bsc.exe  -bs-v 9.1.4  -absname -bs-ast -o $out $i
+o src/demo.ast : astj ../../src/demo.res
+rule deps
+  command = /home/mishaszu/.nvm/versions/node/v16.13.1/lib/node_modules/rescript/linux/bsb_helper.exe -hash bcd884d72f843b58b8bcf4292d1d904e $in
+  restat = 1
+o src/demo.d : deps src/demo.ast
+rule mij
+  command = /home/mishaszu/.nvm/versions/node/v16.13.1/lib/node_modules/rescript/linux/bsc.exe -I src   -bs-package-name replicate-error -bs-package-output es6:$in_d:.bs.js $i
+  dyndep = 1
+  restat = 1
+o src/demo.cmj src/demo.cmi ../../src/demo.bs.js : mij src/demo.ast
+o src/Test.ast : astj ../../src/Test.res
+o src/Test.d : deps src/Test.ast
+o src/Test.cmj src/Test.cmi ../../src/Test.bs.js : mij src/Test.ast

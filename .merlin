@@ -1,0 +1,8 @@
+####{BSB GENERATED: NO EDIT
+FLG -ppx '/home/mishaszu/.nvm/versions/node/v16.13.1/lib/node_modules/rescript/linux/bsc.exe -as-ppx '
+S /home/mishaszu/.nvm/versions/node/v16.13.1/lib/node_modules/rescript/lib/ocaml
+B /home/mishaszu/.nvm/versions/node/v16.13.1/lib/node_modules/rescript/lib/ocaml
+FLG -w +a-4-9-20-40-41-42-50-61-102
+S src
+B lib/bs/src
+####BSB GENERATED: NO EDIT}
